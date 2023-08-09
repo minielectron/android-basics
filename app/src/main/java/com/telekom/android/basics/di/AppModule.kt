@@ -1,8 +1,8 @@
 package com.telekom.android.basics.di
 
-import com.telekom.android.basics.model.DemoClass
-import com.telekom.android.basics.model.Person
 import com.telekom.android.basics.ui.MainActivity
+import com.telekom.android.logger.LogFramework
+import com.telekom.android.logger.Logger
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -15,10 +15,7 @@ abstract class AppModule {
 
     companion object{
         @Provides
-        fun providesDemoClass(person: Person) = DemoClass(person)
-
-        @Provides
-        fun person() = Person("John", 54)
+        fun logger(): Logger = LogFramework.getConfig().logger
     }
 
 }
